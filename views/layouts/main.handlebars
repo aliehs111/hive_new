@@ -1,0 +1,41 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hive</title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/jass.css" />
+
+  </head>
+<body>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1 class="hive"><a href="/">Hive</a></h1>
+      <nav>
+
+        <!-- Conditionally render login or logout links -->
+        {{#if loggedIn}}
+        <a href="/search">Find Events</a>
+        <a href="/event">Add Event</a>       
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      <p>Casey Barham, Larissa Bierly, Sheila McGovern</p>
+     <p>&copy; 2023</p> 
+    </footer>
+  </div>
+<script src="/js/scripts.js"></script>
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
+</body>
+
+</html>

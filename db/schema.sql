@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS hive_db;
+CREATE DATABASE hive_db;

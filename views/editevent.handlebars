@@ -1,0 +1,24 @@
+<h2>Edit Event</h2>
+
+<form id='edit-post-form'>
+    
+  <label for='event-name'>Name</label>
+  <input type='text' id='event-name' name='event-name' value='{{event.name}}' />
+
+  <label for='event-description'>Description</label>
+  <textarea id='event-description' name='event-description' >{{event.description}}</textarea>
+
+  <label for='event-image'>Image</label>
+  <input type='text' id='event-image' name='event-image' value='{{event.image}}'/>
+
+  <label for='event-date'>Date</label>
+  <input type='text' id='event-date' name='event-date' value='{{event.date}}'/>
+
+  <input type='hidden' id='event-id' name='event-id' value='{{event.id}}'/>
+
+  <button type='submit' id='edit_event'>Update Event</button>
+  <button type='button' id='del_event'>Delete Event</button>
+
+</form>
+
+<script src='/js/editevent.js'></script>

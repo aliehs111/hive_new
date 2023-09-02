@@ -1,0 +1,11 @@
+{{> event event}}
+
+{{!-- this section is for new comments if logged in --}}
+{{#if loggedIn}}
+<form id="edit-event-form">
+    <input type="hidden" id="event-id" name="event-id" value="{{event.id}}">
+
+    <button id="edit_event_btn" type="submit">Edit Event</button>
+   
+</form>
+{{/if}}

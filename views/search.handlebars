@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+    <link rel="stylesheet" href="search.css">
+</head>
+<body>
+    <header>
+        <h1>Search Page</h1>
+    </header>
+    <div class="container">
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Enter your search query...">
+            <button type="submit">Search</button>
+        </form>
+        <div id="search-results">
+            <!-- Search results will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        const searchForm = document.getElementById("search-form");
+        const searchInput = document.getElementById("search-input");
+        const searchResults = document.getElementById("search-results");
+
+        searchForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const query = searchInput.value;
+            // Perform search and populate searchResults with the results
+        });
+    </script>
+</body>
+</html>

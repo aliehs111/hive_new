@@ -1,0 +1,57 @@
+[
+    {
+      "user_name": "Jeffrey",
+      "email": "jeffrey@hotmail.com",
+      "password": "password12345"
+    },
+    {
+      "user_name": "Carlos",
+      "email": "carlosrocks@gmail.com",
+      "password": "password12345"
+    },
+    {
+      "user_name": "Cindy",
+      "email": "windycindy@aol.com",
+      "password": "password12345"
+    },
+    {
+      "user_name": "Jessica",
+      "email": "jessica@yahoo.com",
+      "password": "password12345"
+    },
+    {
+      "user_name": "Jane",
+      "email": "jane@yahoo.com",
+      "password": "password12345"
+    },
+    {
+      "user_name": "John",
+      "email": "john@yahoo.com",
+      "password": "password12345"
+    },
+    {
+      "user_name": "Mary",
+      "email": "mary@yahoo.com",
+      "password": "password12345"
+    },
+    {
+      "user_name": "Maria",
+      "email": "maria@yahoo.com",
+      "password": "password12345"
+    },
+    {
+      "user_name": "Martha",
+      "email": "martha@yahoo.com",
+      "password": "password12345"
+    },
+    {
+      "user_name": "Margaret",
+      "email": "margaret@yahoo.com",
+      "password": "password12345"
+    },
+    {
+      "user_name": "Stephen",
+      "email": "stephen@yahoo.com",
+      "password": "password12345"
+    }
+  ]

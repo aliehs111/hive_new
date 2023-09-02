@@ -1,0 +1,26 @@
+[
+{
+    "image": "https://www.nme.com/wp-content/uploads/2019/07/ANDY-HUGHES-NME-GLASTO19-3954-1068x678.jpg",
+    "name": "Late Night Rave",
+    "description": "Join us at the Fillmore for a late night Rave!",
+    "date_scheduled": "2023-09-08",
+    "user_id": 1
+  },
+
+ {
+  "image": "https://townsquare.media/site/848/files/2021/06/attachment-isaiah-mcclean-j9PpIy_x4EE-unsplash.jpg?w=980&q=75",
+  "name": "Salsa Dancing",
+  "description":"Learn to Dance Salsa at The studio!!!",
+  "date_scheduled":"2023-09-11",
+  "user_id": 2
+  },
+  
+  {
+  "image":"https://virginiatraveltips.com/wp-content/uploads/2021/04/Best-BBQ-in-Richmond-VA.jpg",
+  "name": "Garden BBQ",
+  "description":"Come join us at Benny's Garden for a Garden BBQ event!",
+  "date_scheduled":"2023-09-09",
+  "user_id": 3
+  }
+
+]
