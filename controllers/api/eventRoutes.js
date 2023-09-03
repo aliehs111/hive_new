@@ -1,3 +1,4 @@
+const express = require('express');
 const router = require('express').Router();
 const { User, Event } = require('../../models');
 const withAuth = require('../../utils/auth');
@@ -39,51 +40,42 @@ router.put('/:id', withAuth, async (req, res) => {
 }
 });
 
-// delete an event
-router.delete('/:id', withAuth, async (req, res) => {
+// search for events
+
+router.get('/search', withAuth, async (req, res) => {
   try {
-    const eventData = await Event.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
-
-    if (!eventData) {
-      res.status(404).json({ message: 'No event found with this id!' });
-      return;
-    }
-
-    res.status(200).json(eventData);
-  } catch (err) {
-    res.status(500).json(err);
+      const query = req.query.query; // Retrieve search query from request
+      const eventsData = await Event.findAll({
+        where: {
+          $or: [
+            { name: { $like: `%${query}%` } },
+            { description: { $like: `%${query}%` } },
+            // Add more attributes as needed
+          ],
+        },
+        attributes: ['id', 'name', 'description', 'date_scheduled', 'image'],
+        include: [
+          {
+            model: User,
+            attributes: ['user_name'],
+          },
+        ],
+      });
+      const events = eventsData.map((event) => event.get({ plain: true }));
+      res.render('searchresults', {
+          loggedIn: req.session.logged_in,
+          events,
+      });
+  } catch (error) {
+      res.render('searchresults', {
+          loggedIn: req.session.logged_in,
+          error: 'Failed to load search results'
+      });
   }
 });
 
-// subscribe to event 
-// router.post('/:id', withAuth, async (req, res) => {
-//   try {
-//     const eventData = await Event.findAll({
-//       where: {id: req.params.id}
-//     });
-//     if (!eventData) {
-//       res.status(404).json({ message: 'No event found with this id!' });
-//       return;
-//     }
-//     const userData = await User.findAll({
-//       where: {id: req.session.user_id}
-//     });
-//     if (!userData) {
-//       res.status(404).json({ message: 'No user found!' });
-//       return;
-//     }
-//     await User.addEvent(eventData);
-//     await Event.addUser(userData);
-//     res.status(200).json({ message: 'ok' });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json(err);
-//   }
-// });
+
+
+
 
 module.exports = router;

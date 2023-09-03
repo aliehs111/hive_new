@@ -54,6 +54,8 @@ router.get('/events/:id', withAuth, async function (req, res) {
   }
 });
 
+
+
 router.get('/signup', function (req, res) {
   res.render('signup');
 });
@@ -66,8 +68,16 @@ router.get('/logout', function (req, res) {
   res.render('login');
 });
 
+router.get('/search', function (req, res) {
+    res.render('search');
+});
+
 router.get('/event', function (req, res) {
     res.render('event');
   });
+
+  router.get('/search/event', (req, res) => {
+    res.render('searchresults'); // Render the search.handlebars view
+});
 
 module.exports = router;
