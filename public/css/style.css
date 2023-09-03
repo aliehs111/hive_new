@@ -196,6 +196,12 @@ h1 {
   padding: 1rem;
 }
 
+main {
+  min-height: 73vh;
+
+  
+}
+
 
 /* Footer */
 footer {

@@ -12,12 +12,7 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const event of eventData) {
-    await Event.create({
-      ...event,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+  const events = await Event.bulkCreate(eventData);
 
   process.exit(0);
 };

@@ -1,0 +1,3 @@
+//what to do when a user clicks on one of the hexes on homepage.  A new handlebars view (or partial view) will be loaded into the main content area.  The view will be determined by the hex that was clicked on. in the detail view, the user who created it will show.
+  
+//need an advent listener to listen for click on the hex element containing the event id. This will be the event id that is passed to the event details page.  The event details page will be a handlebars view that will be loaded into the main content area.  The view will be determined by the hex that was clicked on. in the detail view, the user who created it will show.

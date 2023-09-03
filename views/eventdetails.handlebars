@@ -1,11 +1,38 @@
-{{> event event}}
+<div>
+    <h1>Event Details</h1>
+    <div class="event_image">
+        <img src="{{event.image}}" alt="{{event.name}} image">
+    </div>
 
-{{!-- this section is for new comments if logged in --}}
-{{#if loggedIn}}
-<form id="edit-event-form">
-    <input type="hidden" id="event-id" name="event-id" value="{{event.id}}">
 
-    <button id="edit_event_btn" type="submit">Edit Event</button>
-   
-</form>
-{{/if}}
+
+    <div class="event-details">
+        <div class="event-details__item">
+            <div class="event-details__item__label">Name</div>
+            <div class="event-details__item__value">{{event.name}}</div>
+        </div>
+        <div class="event-details__item">
+            <div class="event-details__item__label">Description</div>
+            <div class="event-details__item__value">{{event.description}}</div>
+        </div>
+        <div class="event-details__item">
+            <div class="event-details__item__label">Start Date</div>
+            <div class="event-details__item__value">{{event.date_scheduled}}</div>
+        </div>
+     
+        <div class="event-details__item">
+            <div class="event-details__item__label">Organizer</div>
+            <div class="event-details__item__value">{{event.user.user_name}}</div>
+        </div>
+        <div class="event-details__item">
+            <div class="event-details__item__label">Contact</div>
+            <div class="event-details__item__value">{{event.user.email}}</div>
+        </div>
+        </div>
+        
+      
+</div>
+
+
+
+
