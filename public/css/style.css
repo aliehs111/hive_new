@@ -201,6 +201,20 @@ main {
 
   
 }
+/* event details view */
+.event-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: right;
+  padding: 1rem;
+}
+
+.event-image {
+  width: 600px; /* Adjust to your preferred width */
+  height: auto; /* Maintain aspect ratio */
+}
+
 
 
 /* Footer */

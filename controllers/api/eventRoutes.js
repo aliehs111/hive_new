@@ -19,30 +19,97 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// update an event
-router.put('/:id', withAuth, async (req, res) => {
+//get the event that the user wants to edit
+router.get('/edit/:id', withAuth, async (req, res) => {
   try {
-    const updatedEvent = await Event.update(req.body, {
-      where: {
-      id: req.params.id,
-      user_id: req.session.user.id, //make sure event belongs to user - maybe not necessary?
-    },
-  });
+    const eventId = req.params.id;
+    // Fetch the event data by ID
+    const eventData = await Event.findOne({
+      where: { id: eventId },
+     
+    });
 
-  if (!updatedEvent[0]) {
-    res.status(404).json({ message: 'No event found with this id' });
-    return;
+    if (!eventData) {
+      // Handle event not found
+      res.render('error', {
+        message: 'Event not found',
+      });
+      return;
+    }
+
+    const event = eventData.get({ plain: true });
+    res.render('editevent', {
+      loggedIn: req.session.logged_in,
+      event,
+    });
+  } catch (error) {
+    // Handle error
+    res.render('error', {
+      message: 'An error occurred while fetching event data',
+    });
   }
-
-  res.status(200).json(updatedEvent);
-} catch (err) {
-  res.status(400).json(err);
-}
 });
 
+router.put('/edit/:id', withAuth, async (req, res) => {
+  try {
+    const eventId = req.params.id;
+    const { name, description, date_scheduled, /* other attributes */ } = req.body;
+
+    // Update the event data in the database
+    const updatedEvent = await Event.update(
+      {
+        name,
+        description,
+        date_scheduled,
+        // Update other attributes as needed
+      },
+      {
+        where: { id: eventId },
+      }
+    );
+
+    if (updatedEvent[0] === 0) {
+      // Handle event not found or failed update
+      res.render('error', {
+        message: 'Event not found or update failed',
+      });
+      return;
+    }
+
+    // Event was successfully updated
+    res.redirect('/'); // Redirect to the homepage or another relevant page
+  } catch (error) {
+    // Handle error
+    res.render('error', {
+      message: 'An error occurred while updating the event',
+    });
+  }
+});
+//////////////////
+// // update an event
+// router.put('/:id', withAuth, async (req, res) => {
+//   try {
+//     const updatedEvent = await Event.update(req.body, {
+//       where: {
+//       id: req.params.id,
+//       user_id: req.session.user.id, //make sure event belongs to user - maybe not necessary?
+//     },
+//   });
+
+//   if (!updatedEvent[0]) {
+//     res.status(404).json({ message: 'No event found with this id' });
+//     return;
+//   }
+
+//   res.status(200).json(updatedEvent);
+// } catch (err) {
+//   res.status(400).json(err);
+// }
+// });
+//////////////////
 // search for events
 
-router.get('/search', withAuth, async (req, res) => {
+router.get('/events/', withAuth, async (req, res) => {
   try {
       const query = req.query.query; // Retrieve search query from request
       const eventsData = await Event.findAll({

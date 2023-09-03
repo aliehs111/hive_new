@@ -1,14 +1,14 @@
-const editPostForm = document.querySelector("#edit-event-form");
-const postID = document.querySelector("#event-id").value;
+const editEventForm = document.querySelector("#edit-event-form");
+const eventID = document.querySelector("#event-id").value;
 
   
-editPostForm.addEventListener("submit", async (event) => {
+editEventForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const name = document.querySelector("#event-name").value;
   const description = document.querySelector("#event-description").value;
 
-  const editPostData = {
+  const editEventData = {
     name,
     description,
   };

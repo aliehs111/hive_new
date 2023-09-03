@@ -26,6 +26,8 @@ router.get('/', withAuth, async function (req, res) {
     });
   }
 });
+
+
 router.get('/events/:id', withAuth, async function (req, res) {
   try {
     const eventData = await Event.findOne({
