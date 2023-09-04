@@ -24,10 +24,16 @@
         {{/if}}
       </nav>
     </header>
+    
     <main class="container container-fluid mt-5">
+      {{#if error}}
+      <div class="alert alert-danger error" role="alert">
+        {{error}}
+      </div>
+        {{/if}}
+      
       <!-- Render the sub layout -->
       {{{ body }}}
-     
     </main>
     <footer>
       <p>Casey Barham, Larissa Bierly, Sheila McGovern</p>
