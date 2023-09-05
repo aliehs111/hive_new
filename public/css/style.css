@@ -83,7 +83,7 @@ header, .project:not(:last-child) {
   left: -1%;  /* prevent line on the right where background doesn't cover image */
   padding: 5%;
   box-sizing: border-box;
-  background-color: rgba(93, 95, 86, 0.8);
+  background-color: rgba(197, 160, 25, 0.8);
   font-weight: 300;
   transition: transform .2s ease-out, opacity .3s ease-out;
 }
@@ -185,14 +185,14 @@ header, .project:not(:last-child) {
 /* End Hexagons */
 /* Body */
 body {
-  background: linear-gradient(to bottom, #201504, #876e0b, #d8c30d);
+  background: linear-gradient(to bottom, #000000, #414040, #7c7c7c);
+  /* background: rgb(44, 43, 42); */
 }
 
 h1 {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
   text-align: center;
-  color: #fff;
   padding: 1rem;
 }
 
@@ -206,14 +206,29 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: right;
+  align-items: center;
   padding: 1rem;
 }
 
 .event-image {
   width: 600px; /* Adjust to your preferred width */
   height: auto; /* Maintain aspect ratio */
+  border-radius: 12px;
 }
+.card {
+  /* Change background color */
+  background-color: rgb(255, 255, 255);
+
+  /* Add border */
+  border: 1px solid #bacdd8;
+
+  /* Add space between the border and the content */
+  padding: 8px;
+
+  border-radius: 12px;
+  width: 625px;
+}
+
 
 #edit_title {
   font-size: 2rem;
@@ -232,6 +247,9 @@ main {
 footer {
   background-color: #333;
   color: #fff;
-  padding: 2rem;
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: auto;
 }

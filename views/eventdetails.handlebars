@@ -1,16 +1,19 @@
-<div class='event-details'>
-  <h1>{{event.name}}</h1>
+<div class='event-details card'>
   <div class='event_image'>
     <img class='event-image' src='{{event.image}}' alt='{{event.name}} image' />
   </div>
 
-  <p><strong>Name:</strong> {{event.name}}</p>
-  <p><strong>Description:</strong> {{event.description}}</p>
-  <p><strong>Date:</strong> {{event.date_scheduled}}</p>
-  <p><strong>Organizer:</strong> {{event.user.user_name}}</p>
-  <p><strong>Contact:</strong> {{event.user.email}}</p>
+  <div class="">
+    <h1>{{event.name}}</h1>
+    <p><strong>Name:</strong> {{event.name}}</p>
+    <p><strong>Description:</strong> {{event.description}}</p>
+    <p><strong>Date:</strong> {{event.date_scheduled}}</p>
+    <p><strong>Organizer:</strong> {{event.user.user_name}}</p>
+    <p><strong>Contact:</strong> {{event.user.email}}</p>
+  </div>
+  
   {{#if isOwner}}
-    <a class='edit-button' href='/events/edit/{{event.id}}'>Edit Event</a>
+    <a class='btn btn-primary' href='/events/edit/{{event.id}}'>Edit Event</a>
   {{/if}}
   {{!-- <a class='comment-button' href='/events/comment/{{event.id}}'>Comment Event</a> --}}
 </div>
