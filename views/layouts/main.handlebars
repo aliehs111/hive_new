@@ -11,16 +11,16 @@
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
-      <h1 class="hive"><a href="/">Hive</a></h1>
+      <a href="/"><img src="/assets/hive.svg"></a>
       <nav>
 
         <!-- Conditionally render login or logout links -->
         {{#if loggedIn}}
-        <a href="/search">Find Events</a>
-        <a href="/event">Add Event</a>       
-        <button class="no-button" id="logout">logout</button>
+        <button class="btn btn-primary"><a href="/search">Find Events</a></button>
+        <button class="btn btn-primary"><a href="/event">Add Event</a></button>       
+        <button class="btn btn-danger" id="logout">logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <button class="btn btn-primary"><a href="/login">login</a></button>
         {{/if}}
       </nav>
     </header>
@@ -35,10 +35,10 @@
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
-    <footer>
+    {{!-- <footer>
       <p>Casey Barham, Larissa Bierly, Sheila McGovern</p>
      <p>&copy; 2023</p> 
-    </footer>
+    </footer> --}}
   </div>
 <script src="/js/scripts.js"></script>
 {{#if loggedIn}}
